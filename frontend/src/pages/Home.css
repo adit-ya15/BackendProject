@@ -1,0 +1,46 @@
+.home-page {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.home-page h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-lg);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3xl);
+    text-align: center;
+    color: var(--text-secondary);
+}
+.empty-state .icon {
+    font-size: 4rem;
+    margin-bottom: var(--space-lg);
+    opacity: 0.3;
+}
+.empty-state h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+.empty-state p {
+    font-size: 0.9rem;
+    max-width: 400px;
+}
+
+@media (max-width: 640px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
