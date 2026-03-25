@@ -1,0 +1,104 @@
+.sidebar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-right: 1px solid var(--border-color);
+    padding: var(--space-md) 0;
+    z-index: 40;
+    transition: width var(--transition-slow);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar.collapsed {
+    width: var(--sidebar-width-collapsed);
+}
+
+.sidebar-section {
+    padding: var(--space-sm) var(--space-md);
+}
+.sidebar-section-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-tertiary);
+    padding: var(--space-sm) var(--space-md);
+    margin-top: var(--space-sm);
+    white-space: nowrap;
+    overflow: hidden;
+}
+.sidebar.collapsed .sidebar-section-title {
+    opacity: 0;
+}
+.sidebar-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: var(--space-sm) var(--space-md);
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: 10px var(--space-lg);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    border-radius: var(--radius-md);
+    margin: 2px var(--space-sm);
+    white-space: nowrap;
+    overflow: hidden;
+}
+.sidebar-link:hover {
+    background: var(--bg-card-hover);
+    color: var(--text-primary);
+}
+.sidebar-link.active {
+    background: rgba(174, 0, 255, 0.12);
+    color: var(--accent-primary);
+}
+.sidebar-link .icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar-link .label {
+    transition: opacity var(--transition-normal);
+}
+.sidebar.collapsed .sidebar-link .label {
+    opacity: 0;
+    width: 0;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding: var(--space-md);
+}
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: var(--sidebar-width);
+    }
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+}
