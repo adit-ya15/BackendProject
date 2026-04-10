@@ -1,34 +1,23 @@
-.playlists-page {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.playlists-page h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: var(--space-lg);
-}
+.playlists-page { max-width: 1100px; margin: 0 auto; }
+.playlists-page h1 { font-size: 1.4rem; font-weight: 700; margin-bottom: var(--space-lg); letter-spacing: -0.3px; }
 .playlists-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: var(--space-lg);
 }
 .playlist-card {
-    background: var(--bg-glass);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
     overflow: hidden;
-    transition: all var(--transition-normal);
+    transition: all var(--t-normal);
     cursor: pointer;
 }
-.playlist-card:hover {
-    border-color: var(--border-color-hover);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-}
+.playlist-card:hover { border-color: var(--border-hover); transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .playlist-card-thumb {
     width: 100%;
     aspect-ratio: 16/9;
-    background: var(--accent-gradient);
+    background: var(--accent-gradient-alt);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,25 +26,16 @@
 .playlist-card-thumb .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0,0,0,0.5);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
 }
-.playlist-card-info {
-    padding: var(--space-md);
-}
-.playlist-card-info h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 4px;
-}
-.playlist-card-info p {
-    font-size: 0.8rem;
-    color: var(--text-tertiary);
-}
+.playlist-card-info { padding: var(--space-md); }
+.playlist-card-info h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 3px; }
+.playlist-card-info p { font-size: 0.78rem; color: var(--text-tertiary); font-family: 'Inter', sans-serif; }
 
 .create-playlist-form {
     display: flex;
@@ -63,6 +43,4 @@
     margin-bottom: var(--space-lg);
     align-items: flex-end;
 }
-.create-playlist-form .form-group {
-    flex: 1;
-}
+.create-playlist-form .form-group { flex: 1; }
