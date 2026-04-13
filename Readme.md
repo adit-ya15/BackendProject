@@ -1,4 +1,4 @@
-# Null
+# VideoTube
 
 A full-stack video platform built with a Node.js/Express API, MongoDB, and a React + Vite frontend.
 
