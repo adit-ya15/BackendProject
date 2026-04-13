@@ -5,8 +5,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': {
-        target: 'http://localhost:8000',
+      'https://backendproject-8f5y.onrender.com': {
+        target: 'https://backendproject-8f5y.onrender.com',
         changeOrigin: true,
         secure: false,
       },

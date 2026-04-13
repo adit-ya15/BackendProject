@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "/api/v1",
+    baseURL: "https://backendproject-8f5y.onrender.com/api/v1",
     withCredentials: true,
     headers: {
         "Content-Type": "application/json",
@@ -31,9 +31,11 @@ API.interceptors.response.use(
 
             try {
                 const refreshToken = localStorage.getItem("refreshToken");
-                const res = await axios.post("/api/v1/users/refresh-token", {
-                    refreshToken,
-                });
+                const res = await axios.post(
+                    `${API.defaults.baseURL}/users/refresh-token`,
+                    { refreshToken },
+                    { withCredentials: true }
+                );
 
                 const { accessToken, refreshToken: newRefreshToken } = res.data.data;
                 localStorage.setItem("accessToken", accessToken);
