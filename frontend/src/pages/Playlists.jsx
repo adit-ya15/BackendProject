@@ -16,7 +16,26 @@ const Playlists = () => {
 
     useEffect(() => {
         if (user) fetchPlaylists();
+        else setLoading(false);
     }, [user]);
+
+    if (!user && !loading) {
+        return (
+            <motion.div
+                className="playlists-page"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+            >
+                <div className="empty-state" style={{ minHeight: "60vh" }}>
+                    <MdPlaylistPlay className="icon" />
+                    <h3>Sign in to create playlists</h3>
+                    <p>Save and organize videos in playlists after you sign in.</p>
+                    <Link to="/register" className="btn-primary">Sign in to continue</Link>
+                </div>
+            </motion.div>
+        );
+    }
 
     const fetchPlaylists = async () => {
         try {

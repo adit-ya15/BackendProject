@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MdVisibility, MdPeople, MdVideoLibrary, MdThumbUp, MdDelete, MdCloudUpload } from "react-icons/md";
 import { FaCloudUploadAlt } from "react-icons/fa";
@@ -37,8 +38,30 @@ const Dashboard = () => {
     const [uploading, setUploading] = useState(false);
 
     useEffect(() => {
-        fetchDashboard();
-    }, []);
+        if (user) {
+            fetchDashboard();
+        } else {
+            setLoading(false);
+        }
+    }, [user]);
+
+    if (!user && !loading) {
+        return (
+            <motion.div
+                className="dashboard-page"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+            >
+                <div className="empty-state" style={{ minHeight: "60vh" }}>
+                    <h1>Channel Dashboard</h1>
+                    <h3>Sign in to manage your channel</h3>
+                    <p>Upload videos, track analytics, and manage your content after you sign in.</p>
+                    <Link to="/register" className="btn-primary">Sign in to continue</Link>
+                </div>
+            </motion.div>
+        );
+    }
 
     const fetchDashboard = async () => {
         setLoading(true);
