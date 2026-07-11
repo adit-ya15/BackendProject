@@ -90,7 +90,7 @@ const Channel = () => {
                         <span>{videos.length} videos</span>
                     </div>
                 </div>
-                {currentUser?.username !== channel.username && (
+                {currentUser && currentUser.username !== channel.username && (
                     <motion.button
                         className={`subscribe-btn ${isSubscribed ? "subscribed" : "not-subscribed"}`}
                         onClick={handleSubscribe}
